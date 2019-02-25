@@ -1,0 +1,2471 @@
+﻿    <AdvancedReps>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children />
+        <Name>{{глава|$2}}</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_>(==+) *(\d+)\.\s*(==+)\n?</replace_>
+        <with_>$1 $2 $3
+{{глава|$2}}</with_>
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>true</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>IgnoreCase</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children />
+        <Name>&lt;sup&gt;[\d\s]+&lt;/sup&gt;</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_>([^\d])&lt;sup&gt;[\d\s]+&lt;/sup&gt;</replace_>
+        <with_>$1 </with_>
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>true</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>IgnoreCase</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children />
+        <Name>&lt;ref \s*group="К"\s*&gt; → &lt;ref&gt;</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_>&lt;ref \s*group="К"\s*&gt;</replace_>
+        <with_>&lt;ref&gt;</with_>
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>true</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>IgnoreCase</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children />
+        <Name>\s*&lt;ref → &lt;ref</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_> *&lt;ref</replace_>
+        <with_>&lt;ref</with_>
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>true</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>IgnoreCase</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children />
+        <Name>=== (.*?) ===  →  == $1 ==</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_>^===\s*(.*?)\s*===$</replace_>
+        <with_>== $1 ==</with_>
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>true</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>IgnoreCase Multiline</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children />
+        <Name>Rule</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_>^#\s*(.*?)$</replace_>
+        <with_># [[#|$1]]</with_>
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>true</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>IgnoreCase Multiline</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children />
+        <Name>== (.*?) == → &lt;center&gt;&lt;big&gt;'''$1'''&lt;/big&gt;&lt;/center&gt;</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_>^==\s*КНИГА [XIV.]+ \(г(.*?)\)\s+==$</replace_>
+        <with_>&lt;center&gt;&lt;big&gt;'''Г$1'''&lt;/big&gt;&lt;/center&gt;</with_>
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>true</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>IgnoreCase Multiline</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>+отстствующие пробелы после пунктуации</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>([.,!?:;»])('*)([\w])</replace_>
+            <with_>$1$2 $3</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>''''' '''''</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>([^'])'''''[  ]+'''''([^'])</replace_>
+                <with_>$1 $2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>''''' — '''''</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>([^'])'''''[  ]*([-—−.,():;])[  ]*'''''([^'])</replace_>
+                <with_>$1 $2 $3</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>Rule</Name>
+                    <ruletype_>OnWholePage</ruletype_>
+                    <replace_>([^'])'''([-—−.,():;])'''([^'])</replace_>
+                    <with_>$1$2$3</with_>
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>1</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>None</regexOptions_>
+                  </IRule>
+                </Children>
+                <Name>''' '''</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>([^'])'''([-—−.,():;]*[  ]+|[  ]+[-—−.,():;]*)'''([^'])</replace_>
+                <with_>$1$2$3</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>Rule</Name>
+                    <ruletype_>OnWholePage</ruletype_>
+                    <replace_>([^'])''([-—−.,():;])''([^'])</replace_>
+                    <with_>$1$2$3</with_>
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>1</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>None</regexOptions_>
+                  </IRule>
+                </Children>
+                <Name>'' ''</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>([^'])''([-—−.,():;]*[  ]+|[  ]+[-—−.,():;]*)''([^'])</replace_>
+                <with_>$1$2$3</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>''''''</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>([^'])('''''')([^'])</replace_>
+                <with_>$1$2$3</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>''''</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>([^'])('''')([^'])</replace_>
+                <with_>$1$2$3</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>-''' '''-</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>-'''[  ]+'''-</replace_>
+                <with_ />
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>false</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>''' '''-\w</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>([^'])'''[  ]+'''[-—](\w)</replace_>
+                <with_>$1$2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>- ''-''</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>лишние переводы строк</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>([^\n\=])\n([^\n\=])</replace_>
+            <with_>$1 $2</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>&amp;nbsp; →</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>&amp;nbsp;</replace_>
+            <with_> </with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>-пробелы в начале строк</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>^('*) *</replace_>
+            <with_>$1</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>\n&lt;center&gt;&amp;nbsp;&lt;/center&gt;\n удаление</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^(\|\|\s*)?&lt;center&gt;['\s*]*(?:&amp;nbsp;)+['\s*]*&lt;/center&gt;$</replace_>
+                <with_>$1\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>\n&amp;nbsp;\n</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^(\|\|\s*)?['\s*]*(?:&amp;nbsp;)+['\s*]*$</replace_>
+                <with_>$1\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>\n\n+ → \n\n</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\n\n+</replace_>
+                <with_>\n\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>чистка пустых строк</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>-пробелы перед &lt;ref&gt;</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_> +&lt;ref&gt;</replace_>
+                <with_>&lt;ref&gt;</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>-пробелы после &lt;/ref&gt; перед пунктуацией</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>&lt;/ref&gt; +([,.?!;:»])</replace_>
+                <with_>&lt;/ref&gt;$1</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>пробелы перед пунктуацией</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>([\w])\s+([.,;:!?)»])</replace_>
+                <with_>$1$2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>-пробелы в конце параграфов</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\s+\n</replace_>
+                <with_>\n\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>пробелы вокруг тире</Name>
+                    <ruletype_>OnWholePage</ruletype_>
+                    <replace_>(.)—(.)</replace_>
+                    <with_>$1 — $2</with_>
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>1</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>None</regexOptions_>
+                  </IRule>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>тире между цифрами без пробелов</Name>
+                    <ruletype_>OnWholePage</ruletype_>
+                    <replace_>(\d) *— *(\d|{{nobr\|\d)</replace_>
+                    <with_>$1—$2</with_>
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>1</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>None</regexOptions_>
+                  </IRule>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>— →  —   (+&amp;nbsp;)</Name>
+                    <ruletype_>OnWholePage</ruletype_>
+                    <replace_> +— </replace_>
+                    <with_> — </with_>
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>1</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>None</regexOptions_>
+                  </IRule>
+                </Children>
+                <Name>пробелы вокруг тире</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_ />
+                <with_ />
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>false</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>пробелы</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_> +</replace_>
+                <with_> </with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>&amp;nbsp; невидимые → в один</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_> +</replace_>
+                <with_> </with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>лишние пробелы</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>минуты - апострофы в штрихи</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(\d)(['’])</replace_>
+                <with_>$1′</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>секунды - кавычки в штрихи</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(\d)(["])</replace_>
+                <with_>$1″</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>в тегах → кавычки</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(&lt;[^&gt;]*=\s*)[″"]([^&gt;"]*?)[″"]([^&gt;]*&gt;)</replace_>
+                <with_>$1"$2"$3</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>20</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>минуты-секунды дуги: кавычки-апострофы в штрихи согласно [[w:Минута дуги]]</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>™•</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>[™•]</replace_>
+                <with_ />
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>- — → —</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>- —</replace_>
+                <with_> —</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>false</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>— - → —</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>— -</replace_>
+                <with_>— </with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>false</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>false</enabled_>
+                <Children />
+                <Name>- ["']</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>([^"'])["']([^"'])</replace_>
+                <with_>$1$2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>чистка OCR</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>общая викификация</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Rule</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>((\d+[.,]*\s*[-—−]\s*)?[\d]+)°\s*([,.][\d]+['′])\s*([\d]+(?:''|′′|"))</replace_>
+                <with_>{{градус|$1|$2|$3}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Rule</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>((\d+[.,]*\s*[-—−]\s*)?[\d]+)°\s*([,.][\d]+['′])</replace_>
+                <with_>{{градус|$1|$2}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Rule</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>((\d+[.,\d]*\s*[-—−]\s*)?[\d.,]+)°</replace_>
+                <with_>{{градус|$1}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>{{градус}}</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>К°</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>К°</replace_>
+            <with_>{{Ко}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>\d т → \d ''т''</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(\d)\s*\b(т)\b(?!\. (га|л|гл|км|м|см|мм|т|кг|г|ж\.|жит|ч\.|руб\.|р\.))</replace_>
+            <with_>$1 ''$2''</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>(га|гл|км|м|см|мм|т)) → ''$1''</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(\d|\bт.)\s*\b(га|л|гл|км|м|см|мм|кг|г)\b</replace_>
+            <with_>$1 ''$2''</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>кмг → км²</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>кмг</replace_>
+            <with_>км²</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>(км|м|см|мм)3 → $1³</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\b(км|м|см|мм)\s*3\b</replace_>
+            <with_>$1³</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>(км|м|см|мм)2 → км²</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\b(км|м|см|мм)\s*2\b</replace_>
+            <with_>$1²</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>-</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>[—-]\s*(\d+(?:[,.]\d+)?°)</replace_>
+                <with_>-$1</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>+</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\+\s*(\d+(?:[,.]\d+)?°)</replace_>
+                <with_>+$1</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>+-</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>орфография цифр</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children />
+        <Name>{{дробь}}</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_>(?:&lt;sup&gt;)?(\d+)(?:&lt;/sup&gt;)?\s*/\s*(?:&lt;sub&gt;)?(\d+)(?:&lt;/sub&gt;)?</replace_>
+        <with_>{{дробь|$1|$2}}</with_>
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>true</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>IgnoreCase</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>CH</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>([\d\()A-Z.])[СC][НH]([\d\()A-Z.])</replace_>
+            <with_>$1CH$2</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>OH</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>([\d\()A-Z.])[ОO][НH]([\d\()A-Z.])</replace_>
+            <with_>$1OH$2</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>([\d\()A-Z.])[СC][1l]([\d\()A-Z.])</replace_>
+            <with_>$1Cl$2</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>(CH|OH|C)&lt;sub&gt;$1&lt;/sub&gt;</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>([\d\()A-Z.]CH|OH|Cl|C)(\d+)</replace_>
+            <with_>$1&lt;sub&gt;$2&lt;/sub&gt;</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>нормализация хим. форум</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>"/&gt;&lt;newpage n="[^"]*"/&gt;&lt;newpage</replace_>
+            <with_>"/&gt;&lt;newpage</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>20</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>&lt;newpage n="[^"]*?0*(\d+).txt"\s*/&gt;</replace_>
+            <with_>&lt;n=$1/&gt;</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>&lt;n=(\d+)/&gt;&lt;n=(\d+)/&gt;</replace_>
+            <with_>&lt;n=$1-$2/&gt;</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>&lt;n=([\d-]+)/&gt;\n+==\s*(.*?)\s*==\s*\n(?!&lt;n=)</replace_>
+            <with_>{{Статья в словнике2|$2|||$1}}\n</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>20</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\n==\s*(.*?)\s*==\s*\n</replace_>
+            <with_>\n{{Статья в словнике2|$1}}\n</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>10</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>&lt;n=([\d-]+)/&gt;\n+{{Статья в словнике2\|(.*?)}}</replace_>
+            <with_>{{Статья в словнике2|$2|||$1}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>{{Статья в словнике ТСД}} - копирование пагинации дублирующейся</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>Статья в словнике2\|([^|}]+)\|\|\|\s*([\d-]+)(\}\}[\w\s\n#{]+Статья в словнике2)\|([^|}]+)\s*}}</replace_>
+            <with_>Статья в словнике2|$1|||$2$3|$4|||$2}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>50</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>серилизация словника-черновика</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>{{tsds}} - копирование пагинации дублирующейся</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(tsds\|.*?\|.*?\|)\s*([\d-]+)(.*?\|?.*?}}.*?\n+# *{{tsds\|[^|}]*\|[^|}]*\|)\s*\|?\s*}}</replace_>
+            <with_>$1$2$3$2}}</with_>
+            <ifContains_>tsds\|[^|}]*\|[^|}]*\|\s*\|?\s*}}</ifContains_>
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>true</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(tsds\|.*?\|.*?\|)\s*([\d-]+)(.*?\|?.*?}}.*?\n+# *{{tsds\|[^|}]*\|[^|}]*)}}</replace_>
+            <with_>$1$2$3|$2}}</with_>
+            <ifContains_>tsds\|[^|}]*\|[^|}]*}}</ifContains_>
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>true</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(tsds\|.*?\|.*?\|)\s*([\d-]+)(.*?\|?.*?}}.*?\n+# *{{tsds\|[^|}]*)}}</replace_>
+            <with_>$1$2$3|$2}}</with_>
+            <ifContains_>tsds\|[^|}]*}}</ifContains_>
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>true</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(tsds\|.*?\|.*?\|)\s*([\d-]+)(.*?\|?.*?}}.*?\n+# *{{tsds\|.*?\|.*?\|.*?\|)\s*}}</replace_>
+            <with_>$1$2$3$2}}</with_>
+            <ifContains_>tsds\|[^|}]*(\|[^|}]*\|[^|}]*|[^|}]*\|[^|}]*|[^|}]*|)}}</ifContains_>
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>true</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>{{Статья в словнике ТСД}} - копирование пагинации дублирующейся</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>50</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>\w-\w</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(\w)-(\w)</replace_>
+            <with_>$1$2</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>дефис с пробелои</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>([^\s-])-(\s+)</replace_>
+            <with_>$1 — </with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(\s+)-([^\s-])</replace_>
+            <with_> — $2</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>дефис</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children />
+        <Name>Rule</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_>гл\.\s*[XVLI]</replace_>
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>true</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>IgnoreCase</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\|\|\n*&lt;center&gt;([\da-zа-я]+)\.?&lt;/center&gt;</replace_>
+            <with_>||
+{{№|$1}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>10</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Singleline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>^((?:\{\{№.*?\}\}\n*)+)\n*&lt;center&gt;([\da-zа-я]+)\.?&lt;/center&gt;$</replace_>
+            <with_>$1
+{{№|$2}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>10</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>^(\|\|\n+)?(?:'''*)?([\da-zа-я]+)\.?(?:'''*)?$</replace_>
+            <with_>$1{{№|$2}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>10</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>{{№|$1}}</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>{| style="border-spacing:0;"|| → ¥</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\{\| style="border-spacing:0;"[\s\n]*\|\|</replace_>
+            <with_>¥</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>|} → £</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>|}</replace_>
+            <with_>£</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>&lt;ref&gt; → ‰</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>&lt;ref&gt;</replace_>
+            <with_>‰</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>&lt;/ref&gt; → ‡</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>&lt;/ref&gt;</replace_>
+            <with_>‡</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>&lt;!-- → Ø</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>&lt;!--</replace_>
+            <with_>Ø</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>--&gt; → ‼</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>--&gt;</replace_>
+            <with_>‼</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Rule</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>-¥ вначале</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>^([^¥£]*?)¥</replace_>
+            <with_>$1</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>-£ в конце</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>£\n*$</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>‼\n*¥ → ‼\n</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>‼\n*¥</replace_>
+            <with_>‼\n</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>£\n*Ø  → \nØ</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>£\n*Ø</replace_>
+            <with_>\nØ</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Rule</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>(\n*{{№.*?}}\n*)*</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>({{№.*?}})\n+?({{№.*?}})</replace_>
+            <with_>$1$2</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>10</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\n*((?:{{№.*?}})+)</replace_>
+            <with_>$1</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>‼\n*((?:{{№.*?}})*) →  /$1/ ‼</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(\d+) ‼\n*((?:{{№.*?}})+)</replace_>
+            <with_>$1 /$2/ ‼</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Name>{{№.*?}} из конца страниц в &lt;!-- --&gt;</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(\d+) ‼([^Ø‼]+?)((?:{{№.*?}})+)</replace_>
+            <with_>$1 /$3/ ‼$2</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Singleline</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Rule</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children />
+        <Name>(\n*{{№.*?}}\n*)*</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_>({{№.*?}})\n*({{№.*?}})</replace_>
+        <with_>$1$2</with_>
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>true</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>10</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>\n1 → \n1)</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\n(\d)([^)])</replace_>
+            <with_>\n$1) $2</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>1)  кавычка после цифры в тексте</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>([¥‡][^£‰]*?[^\d|][123456789])([^)|\d£])</replace_>
+            <with_>$1) $2</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>10</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>кавычка после цифр в сносках</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children />
+        <Name>({{Сочинения Платона.*?}}\n*) + &lt;!-- --&gt;</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_>({{Сочинения Платона.*?}}\n*)</replace_>
+        <with_>$1Ø ‼
+</with_>
+        <ifContains_ />
+        <ifNotContains_>{{Сочинения Платона.*?}}\n*Ø\s*\d*\s*‼</ifNotContains_>
+        <regex_>true</regex_>
+        <ifIsRegex_>true</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>+ &lt;ref&gt;\d)&lt;/ref&gt;</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>‼([^‡‰]*?)(?!Ø)\n+(\d\)[^‡‰]*?)\n*(?:Ø)</replace_>
+            <with_>‼$1
+
+‰
+$2
+‡
+
+Ø</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Singleline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>несколько сносок &lt;/ref&gt;&lt;ref&gt;</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(‰\n*\d\)[^‡‰]*?)\n+(\d\)[^‡‰]*?)\n*‡</replace_>
+            <with_>
+$1
+‡‰
+$2
+‡</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>10</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Singleline</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Rule</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>перенос сноски на след. страницу</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>((?!{{перенос сноски.*?}}\s?)‡[^£¥‰]+£)([^£¥]+)(?&lt;page2&gt;¥(?:[^£¥]+)£)\n*‰\n*([^\d\n£¥].*?)\n*‡</replace_>
+            <with_> {{перенос сноски|ref}}$1$2${page2}
+== Примечания ==
+&lt;section begin="ref"/&gt;$3&lt;section end="ref"/&gt;
+</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Singleline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>перенос сноски на след. страницу + {{перенос сноски|ref|$1|$6}}</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;w1&gt;\w+)-\s*({{перенос сноски.*?}}\s*‡[^£¥‰]+£)([^£¥]+)(?&lt;page2&gt;¥(?:[^£]+)£)([^£¥]+\n*&lt;section begin="ref"/&gt;)(?&lt;w2&gt;\w+)</replace_>
+            <with_>{{перенос|${w1}|${w2}}} $1$2${page2}$3{{перенос2|${w1}|${w2}}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Singleline</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>перенос сноски на след. страницу</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>{{перенос}} | раздел страниц</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(\w+)-\n*(Ø \d+ ‼)\n*(\w+)</replace_>
+            <with_>{{перенос|$1|$3}} $2{{перенос2|$1|$3}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>перенос сносок в текст</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(¥[^£]*?)([123456789]\))([^£]*?£)\n*([^¥]*?)‰\n*(\2.*?)\n*‡</replace_>
+            <with_>$1‰$5‡$3\n$4</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>10</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Singleline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>перенос сносок в текст 2</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(Ø[^Ø]*?)\s*([123456789]\))([^Ø]*?)\n‰\n*(\2.*?)\n*‡</replace_>
+            <with_>$1‰$4‡$3</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>10</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Singleline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>{{перенос}} перенос | раздел страниц сложный</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(\w+)-(\n*(?:\n*{{№.*?}}\n*)*£[^¥]+?¥(?:\n*{{№.*?}}\n*)*)(\w+)</replace_>
+            <with_>{{перенос|$1|$3}}$2{{перенос2|$1|$3}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Singleline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>‼[\n\s]*([а-я]) → ‼$1</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>‼[\n\s]*([а-я]|{{перенос)</replace_>
+            <with_>‼$1</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>([а-я])[\n\s]*Ø → $1Ø</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>([\w,]|\{\{перенос.*?\}\})[\n\s]*Ø</replace_>
+            <with_>$1 Ø</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>(\w) &lt;!-- 332 --&gt;(\w)</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>([\w,]|\{\{перенос.*?\}\})\n*(Ø.*?‼) +(\w)</replace_>
+            <with_>$1 $2$3</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>‼\n+ → ‼\n\n</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>‼\n+</replace_>
+            <with_>‼\n</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>{{перенос}} | раздел страниц</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>\n‰‡ → \n‰\n‡</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\n‡‰</replace_>
+            <with_>\n‡\n‰</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>- \n внутри &lt;ref&gt;&lt;/ref&gt;</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>‰\n*([^‰‡¥£Ø]*?)\n*‡</replace_>
+            <with_>‰$1‡</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>- 1) в &lt;ref&gt;&lt;/ref&gt; в тексте</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;!\n)‰\n*\d\)\s*</replace_>
+            <with_>‰</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Rule</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>false</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>- ^||</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>^\|\|[\s\n]*</replace_>
+            <with_>\n</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Сокр. → ''Сокр.''</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^((?:Сокр. Мл|Сокр|Алк|Мел|Гори|Хереф|Пол|Горг|Калл|Ион|Др|Ипп|Евд|Ерм|Крат|Крит|Тим|Лах|Лиз|Ник|Мен|Менон|Мал|Ан|Феод|Феаг|Фед|Федр|Ин|Теэт|Эвкл|Эхекр|Эвт|Дим|Пол|Прот)\.)</replace_>
+                <with_>''$1''</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Сокр.</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^''((?:Сокр. Мл|Сокр|Алк|Мел|Гори|Хереф|Пол|Горг|Калл|Ион|Др|Ипп|Евд|Ерм|Крат|Крит|Тим|Лах|Лиз|Ник|Мен|Менон|Мал|Ан|Феод|Феаг|Фед|Федра?|Ин|Теэт|Эвкл|Эхекр|Эвт|Дим|Пол|Прот))(''\.|\. ''|\.'')([^'])?</replace_>
+                <with_>''$1.'' $3</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>оформление</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>-&lt;/?nowiki&gt;</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>&lt;/?nowiki&gt;</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>заголовок</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>= Карпов.*?Платон. ([^=]+?)[\s.]*=\n*\n*(?:&lt;!-- \d+ --&gt;)?\n*(?:'*Карпов.*?\n)?</replace_>
+            <with_>&lt;center&gt;&lt;big&gt;'''$1.'''&lt;/big&gt;&lt;/center&gt;
+</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>заголовок</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>^ЛИЦА РАЗГОВАРИВАЮЩИЕ:$</replace_>
+            <with_>&lt;center&gt;&lt;big&gt;'''ЛИЦА РАЗГОВАРИВАЮЩИЕ:'''&lt;/big&gt;&lt;/center&gt;</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>-заголовок ^= Платон .*? =$</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>^= Платон .*? =$</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>({{Сочинения Платона.*?}})\n*''Платон''\.\n*</replace_>
+            <with_>$1
+</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>{{примечания}} → \n</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>{{примечания}}</replace_>
+            <with_>\n</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>убрать последний разделитель страниц &lt;!--  --&gt;</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\n*&lt;!-- \d+ --&gt;\n*$</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Singleline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>\{\{№\|[Аа]\}\} → {{№|A}}</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\{\{№\|[Аа]\}\}</replace_>
+                <with_>{{№|A}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>\{\{№\|[Вв]\}\} → {{№|B}}</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\{\{№\|[Вв]\}\}</replace_>
+                <with_>{{№|B}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>\{\{№\|[Сс]\}\} → {{№|C}}</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\{\{№\|[Сс]\}\}</replace_>
+                <with_>{{№|C}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>\{\{№\|[Ее]\}\} → {{№|E}}</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\{\{№\|[Ее]\}\}</replace_>
+                <with_>{{№|E}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Сочинения Платона</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>пробелы</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_> +</replace_>
+            <with_> </with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>\n\n+ → \n\n</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_>\n\n+</replace_>
+        <with_>\n\n</with_>
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>true</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>== Примечания == → ______________</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>== Примечания ==</replace_>
+            <with_>______________
+</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Rule</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>-[¥£]</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>[¥£]</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Name>&lt;!-- (\d+) /{{№|.*?}}/ --&gt; → &lt;!-- $1 --&gt;&lt;!--2 --&gt;</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>Ø (\d+) /\s*({{№|.*?}})\s*/ ‼</replace_>
+            <with_>Ø $1 ‼Ø $2 ‼</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>______________[[Категория:Сочинения Платона:Продолжающиеся сноски, проверить section]]</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>______________
+</replace_>
+            <with_>______________
+[[Категория:Сочинения Платона:Продолжающиеся сноски, проверить section]]
+</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Rule</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>‰ → &lt;ref&gt;</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>‰</replace_>
+            <with_>&lt;ref&gt;</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>‡ → &lt;/ref&gt;</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>‡</replace_>
+            <with_>&lt;/ref&gt;</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Ø → &lt;!--</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>Ø</replace_>
+            <with_>&lt;!--</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>‼ → --&gt;</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>‼</replace_>
+            <with_>--&gt;</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Rule</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+    </AdvancedReps>
